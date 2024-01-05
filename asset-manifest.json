@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/amelia-website/static/css/main.dc364dbc.css",
-    "main.js": "/amelia-website/static/js/main.19450eb0.js",
+    "main.js": "/amelia-website/static/js/main.d91031f7.js",
     "static/js/787.d4aba7ab.chunk.js": "/amelia-website/static/js/787.d4aba7ab.chunk.js",
-    "static/media/purpleBack.jpg": "/amelia-website/static/media/purpleBack.6a325c34592d364d87d7.jpg",
+    "static/media/BackgroundHomepage.png": "/amelia-website/static/media/BackgroundHomepage.f78ce119902d73eee08d.png",
     "static/media/gill-sans.ttf": "/amelia-website/static/media/gill-sans.d4587ff9e04196a3877e.ttf",
     "index.html": "/amelia-website/index.html",
     "main.dc364dbc.css.map": "/amelia-website/static/css/main.dc364dbc.css.map",
-    "main.19450eb0.js.map": "/amelia-website/static/js/main.19450eb0.js.map",
+    "main.d91031f7.js.map": "/amelia-website/static/js/main.d91031f7.js.map",
     "787.d4aba7ab.chunk.js.map": "/amelia-website/static/js/787.d4aba7ab.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.dc364dbc.css",
-    "static/js/main.19450eb0.js"
+    "static/js/main.d91031f7.js"
   ]
 }
