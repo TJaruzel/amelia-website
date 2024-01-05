@@ -3,14 +3,14 @@
   "name": "Amelia's Portfolio",
   "icons": [
     {
-      "src": "512LogoIcon.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    },
-    {
       "src": "192Logo.png",
       "type": "image/png",
       "sizes": "192x192"
+    },
+    {
+      "src": "256Icon.png",
+      "type": "image/png",
+      "sizes": "256x256"
     },
     {
       "src": "512Logo.png",
