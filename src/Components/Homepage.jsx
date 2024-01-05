@@ -1,37 +1,50 @@
-
 import React from 'react';
-import Container from '@mui/material/Container';
-import background from '../Lib/purpleBack.jpg';
+import { Fab, Grid, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { Grid, Typography } from '@mui/material';
-import '../index.css';
+import background from '../Lib/BackgroundHomepage.png';
 
-export const Homepage = () => {
-  const useStyles = makeStyles((theme) => ({
-    fullPageContainer: {
-      minHeight: '100vh',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: '100%',
-      overflow: 'hidden',
-    },
-    gillSans: {
-      fontFamily: 'CustomFont',
-    },
-  }));
+const useStyles = makeStyles((theme) => ({
+  fullPageContainer: {
+    width: '100vw',
+    height: '80vh',
+    display: 'flex',
+    alignContent: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+    backgroundColor: "#E6E3DB",
+    backgroundImage: `url(${background})`, // Moved background image here
+  },
+  centeredContent: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+  },
+}));
 
+const Homepage = () => {
   const classes = useStyles();
 
   return (
-    <Grid container className={classes.fullPageContainer} style={{ backgroundImage: `url(${background})` }}>
-      <Grid container item style={{ minHeight: '100vh' }}>
-        <Grid item xs={4}></Grid>
-        <Grid item xs={12} lg={4} style={{ backgroundColor: 'white', justifyContent: 'center' }}>
-        <p className={classes.gillSans}>Amelia Rensch</p>
+    <Grid container className={classes.fullPageContainer}>
+      <Grid container item style={{marginTop:'450px'}}>
+        <Grid item xs={12} className={classes.centeredContent}>
+        <Typography variant='h2'>Hello!</Typography>
         </Grid>
-        <Grid item xs={4}></Grid>
+        <Grid item xs={12} className={classes.centeredContent} style={{marginTop:"20px"}}>
+        <Typography variant='body1'>Using skills and experience to create innovative</Typography>
+        </Grid>
+        <Grid item xs={12} className={classes.centeredContent} style={{marginBottom:"30px"}}>
+        <Typography variant='body1'>and visual solutions through graphics.</Typography>
+        </Grid>
+        <Grid item xs={12} className={classes.centeredContent}>
+        <Fab variant="extended" color="secondary" style={{width:'8vw', fontSize:'20px'}}>
+          Learn More
+        </Fab>
+        </Grid>
       </Grid>
     </Grid>
   );
