@@ -6,8 +6,8 @@ body {
 
 
 @font-face {
-  font-family: 'CustomFont';
-  src: local('CustomFont'), url('./Lib//gill-sans.ttf') format('truetype');
+  font-family: 'GillSans';
+  src: local('GillSans'), url('./Lib//gill-sans.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
