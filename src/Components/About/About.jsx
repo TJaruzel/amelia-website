@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import background from '../Lib/AboutBackground.png';
+import background from '../../Lib/AboutBackground.png';
 
 const useStyles = makeStyles((theme) => ({
   fullPageContainer: {

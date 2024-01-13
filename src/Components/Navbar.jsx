@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'self-end',
     justifyContent: 'center',
     overflow: 'hidden',
+    paddingBottom:'10px',
   },
   logo: {
     backgroundImage: `url(${logo})`,
@@ -48,19 +49,19 @@ const Navbar = () => {
       <Grid container item className={classes.navbar}>
         <Stack direction="row" spacing={2}>
           <Link to="/" className={classes.link}>
-            <Button style={{color:'#82C1CA'}}>Home</Button>
+            <Button style={{color:'#82C1CA', fontSize:'1.2em', textTransform: 'none'}}>Home</Button>
           </Link>
           <Link to="/portfolio" className={classes.link}>
-            <Button style={{color:'#82C1CA'}}>Portfolio</Button>
+            <Button style={{color:'#82C1CA', fontSize:'1.2em', textTransform: 'none'}}>Portfolio</Button>
           </Link>
           <Link to="/about" className={classes.link}>
-            <Button style={{color:'#82C1CA'}}>About</Button>
+            <Button style={{color:'#82C1CA', fontSize:'1.2em', textTransform: 'none'}}>About</Button>
           </Link>
           <Link to="/resume" className={classes.link}>
-            <Button style={{color:'#82C1CA'}}>Resume</Button>
+            <Button style={{color:'#82C1CA', fontSize:'1.2em', textTransform: 'none'}}>Resume</Button>
           </Link>
           <Link to="/contact" className={classes.link}>
-            <Button style={{color:'#82C1CA'}}>Contact</Button>
+            <Button style={{color:'#82C1CA', fontSize:'1.2em', textTransform: 'none'}}>Contact</Button>
           </Link>
         </Stack>
       </Grid>

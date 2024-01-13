@@ -1,7 +1,7 @@
 import React from 'react';
 import { Fab, Grid, Typography, useMediaQuery } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import background from '../Lib/BackgroundHomepage.png';
+import background from '../../Lib/BackgroundHomepage.png';
 import Services from './Services';
 
 const useStyles = makeStyles((theme) => ({
