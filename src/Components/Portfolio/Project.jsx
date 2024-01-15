@@ -1,19 +1,24 @@
 import React from 'react';
-import { Grid } from '@mui/material';
+import { Dialog, DialogContent, DialogTitle, Grid } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
-
+    modalContent: {
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+    },
 }));
 
-const Project = () => {
-  const classes = useStyles();
+const ProjectModal = ({ open, onClose, project }) => {
+    const classes = useStyles();
 
-  return (
-    <Grid container>
-      {/* Your content goes here */}
-    </Grid>
-  );
+    return (
+
+        <img src={project?.image} alt={project?.title} style={{ maxWidth: '100%' }} />
+
+
+    );
 };
 
-export default Project;
+export default ProjectModal;

@@ -7,13 +7,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Socials = () => {
-  const classes = useStyles();
+    const classes = useStyles();
 
-  return (
-    <Grid container>
-      {/* Your content goes here */}
-    </Grid>
-  );
+    return (
+        <Grid container>
+            {/* Your content goes here */}
+        </Grid>
+    );
 };
 
 export default Socials;

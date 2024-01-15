@@ -7,7 +7,7 @@ body {
 
 @font-face {
   font-family: 'GillSans';
-  src: local('GillSans'), url('./Lib//gill-sans.ttf') format('truetype');
+  src: local('GillSans'), url('./Lib/Fonts/gill-sans.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
