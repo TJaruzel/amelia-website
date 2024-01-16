@@ -1,21 +1,35 @@
 {
   "files": {
     "main.css": "/amelia-website/static/css/main.6c3fd5b8.css",
-    "main.js": "/amelia-website/static/js/main.d56608f3.js",
+    "main.js": "/amelia-website/static/js/main.9b2b2e91.js",
     "static/js/787.d4aba7ab.chunk.js": "/amelia-website/static/js/787.d4aba7ab.chunk.js",
+    "static/media/TravelistaMagazineCoverMockup.AmeliaRensch.jpg": "/amelia-website/static/media/TravelistaMagazineCoverMockup.AmeliaRensch.46a18f9531068b855c19.jpg",
+    "static/media/APCMockup1.AmeliaRensch.png": "/amelia-website/static/media/APCMockup1.AmeliaRensch.9f3260bde9ea9da35399.png",
+    "static/media/APCLogoMockup1.AmeliaRensch.png": "/amelia-website/static/media/APCLogoMockup1.AmeliaRensch.dc4f20176c0961b4cee8.png",
     "static/media/AboutBackground.png": "/amelia-website/static/media/AboutBackground.93f9a1282266ace609d6.png",
+    "static/media/TheAugustanCoverMockup1.AmeliaRensch.jpg": "/amelia-website/static/media/TheAugustanCoverMockup1.AmeliaRensch.704f7e65af2e77e27f53.jpg",
+    "static/media/PersonalLogoMockup2.AmeliaRensch.png": "/amelia-website/static/media/PersonalLogoMockup2.AmeliaRensch.28f67b718ed180986c2e.png",
     "static/media/BackgroundHomepage.png": "/amelia-website/static/media/BackgroundHomepage.f78ce119902d73eee08d.png",
+    "static/media/TheGreatGatsbyBookCoverMockup.AmeliaRensch.jpg": "/amelia-website/static/media/TheGreatGatsbyBookCoverMockup.AmeliaRensch.d95c93cef9aa30a95b72.jpg",
+    "static/media/PersonalLogoMockup1.AmeliaRensch.png": "/amelia-website/static/media/PersonalLogoMockup1.AmeliaRensch.7209da822ea931a4c6a9.png",
+    "static/media/APCMockup16.AmeliaRensch.png": "/amelia-website/static/media/APCMockup16.AmeliaRensch.ef4b29018d7c3bd234d4.png",
+    "static/media/BeatlesMockup2.AmeliaRensch.png": "/amelia-website/static/media/BeatlesMockup2.AmeliaRensch.7f1c89c073740e755a4c.png",
+    "static/media/FYALogoMockup2.AmeliaRensch.png": "/amelia-website/static/media/FYALogoMockup2.AmeliaRensch.0285bb9305c8b8f894b2.png",
+    "static/media/BowlONoodlesLogoMockup3.AmeliaRensch.png": "/amelia-website/static/media/BowlONoodlesLogoMockup3.AmeliaRensch.44875d5c6f5165f589e0.png",
+    "static/media/APCLogoMockup3.AmeliaRensch.png": "/amelia-website/static/media/APCLogoMockup3.AmeliaRensch.e2ffdd92504f7adaa382.png",
+    "static/media/PersonalLogoMockup3.AmeliaRensch.png": "/amelia-website/static/media/PersonalLogoMockup3.AmeliaRensch.52fc90128820640a4031.png",
+    "static/media/PortfolioPage.png": "/amelia-website/static/media/PortfolioPage.325b4008949e6718afe1.png",
     "static/media/gill-sans.ttf": "/amelia-website/static/media/gill-sans.d4587ff9e04196a3877e.ttf",
     "static/media/512Logo.png": "/amelia-website/static/media/512Logo.0be14fa56afd98c58d83.png",
     "static/media/P5.RenschAmelia.LogoIcon.png": "/amelia-website/static/media/P5.RenschAmelia.LogoIcon.0b671d3e3af080388387.png",
     "static/media/P5.RenschAmelia.PhotographyIcon.png": "/amelia-website/static/media/P5.RenschAmelia.PhotographyIcon.f9555f30d3c9f3b7ca6c.png",
     "index.html": "/amelia-website/index.html",
     "main.6c3fd5b8.css.map": "/amelia-website/static/css/main.6c3fd5b8.css.map",
-    "main.d56608f3.js.map": "/amelia-website/static/js/main.d56608f3.js.map",
+    "main.9b2b2e91.js.map": "/amelia-website/static/js/main.9b2b2e91.js.map",
     "787.d4aba7ab.chunk.js.map": "/amelia-website/static/js/787.d4aba7ab.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6c3fd5b8.css",
-    "static/js/main.d56608f3.js"
+    "static/js/main.9b2b2e91.js"
   ]
 }
