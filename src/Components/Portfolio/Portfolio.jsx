@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Grid, ImageList, ImageListItem, Typography } from '@mui/material';
+import { Grid, ImageList, ImageListItem, Typography, useMediaQuery } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { Link } from 'react-router-dom';
 import PortfolioText from '../../Lib/Backgrounds/PortfolioPage.png'
 import PersonalLogoMockup from '../../Lib/LogoCollectionMockups/PersonalLogoMockups/PersonalLogoMockup2.AmeliaRensch.png'
 import PersonalLogoMockup2 from '../../Lib/LogoCollectionMockups/PersonalLogoMockups/PersonalLogoMockup1.AmeliaRensch.png'
@@ -13,6 +12,16 @@ import TravelistaMockup from '../../Lib/EditorialCollectionMockups/TravelistaMag
 import AugustanMockup from '../../Lib/EditorialCollectionMockups/TheAugustan/TheAugustanCoverMockup1.AmeliaRensch.jpg'
 import ApcBrandingMockup from '../../Lib/BrandingCollectionMockups/APCMockups/APCMockup1.AmeliaRensch.png'
 import ApcBrandingMockup2 from '../../Lib/BrandingCollectionMockups/APCMockups/APCMockup16.AmeliaRensch.png'
+import WebJagchowMockup from '../../Lib/WebCollectionMockups/JagChowAppMockups/JagChowCover.AmeliaRensch.png'
+import WebFyaMockup from '../../Lib/WebCollectionMockups/FYAAppMockups/FYAAppCover.AmeliaRensch.png'
+import IllustrationMountainMockup from '../../Lib/IllustrationCollectionMockups/NokomisMountain/NokomisMountainMockup1.AmeliaRensch.png'
+import IllustrationRaftMockup from '../../Lib/IllustrationCollectionMockups/NokomisRaft/NokomisRaftMockup2.AmeliaRensch.png'
+import IllustrationOmaMockup from '../../Lib/IllustrationCollectionMockups/OmaMockups/OmaMockup3.AmeliaRensch.png'
+import IllustationBeatlesMockup from '../../Lib/IllustrationCollectionMockups/TheBeatlesFaceCards/BeatlesKing.png'
+import PhotographyIreland1 from '../../Lib/PhotographyCollection/Ireland/IMG_2265.CR2(1).jpg'
+import PhotographyIreland2 from '../../Lib/PhotographyCollection/Ireland/IMG_2152.CR2(1).jpg'
+import PhotographyPortrait1 from '../../Lib/PhotographyCollection/Portraits/DSC_5110.jpg'
+import PhotographyPortrait2 from '../../Lib/PhotographyCollection/Portraits/DSC_7598-3.jpg'
 import Collection from './Collection';
 
 const useStyles = makeStyles((theme) => ({
@@ -20,7 +29,6 @@ const useStyles = makeStyles((theme) => ({
     width: '100vw',
     height: '80vh',
     display: 'flex',
-    marginTop: '15vh',
     alignContent: 'top',
     justifyContent: 'center',
   },
@@ -48,12 +56,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Portfolio = () => {
+const Portfolio = ({ setSelectedImageData }) => {
   const classes = useStyles();
   const [openModal, setOpenModal] = useState(false);
   const [selectedCollection, setSelectedCollection] = useState(null);
+  const isMdUp = useMediaQuery('(min-width:800px)');
+  const isLgUp = useMediaQuery('(min-width:1280px)');
+  let containerStyle = {};
+  let portfolioTextStyle = {};
+  if (isMdUp) { containerStyle = { marginTop: '16vh' } } else { containerStyle = { marginTop: '8vh' } }
+  if (isLgUp) { portfolioTextStyle = { width: '40vw' } } else { portfolioTextStyle = { width: '70vw' } }
 
   const handleOpenModal = (collection) => {
+    console.log(collection)
     setSelectedCollection(collection?.name);
     setOpenModal(true);
   };
@@ -74,32 +89,30 @@ const Portfolio = () => {
       return { name: "logo", text: 'Logo' }
     }
     if (index === 1) {
-      return { route: "branding", text: 'Branding' }
+      return { name: "branding", text: 'Branding' }
     }
     if (index === 2) {
-      return { route: "editorial", text: 'Editorial' }
+      return { name: "editorial", text: 'Editorial' }
     }
     if (index === 3) {
-      return { route: "web", text: 'Web' }
+      return { name: "illustration", text: 'Illustration' }
     }
     if (index === 4) {
-      return { route: "illustration", text: 'Illustration' }
+      return { name: "web", text: 'Web' }
     }
     if (index === 5) {
-      return { route: "photography", text: 'Photography' }
+      return { name: "photography", text: 'Photography' }
     }
   }
 
   return (
-    <Grid container className={classes.fullPageContainer}>
+    <Grid container className={classes.fullPageContainer} style={containerStyle}>
       <Grid container item style={{ justifyContent: 'center', margin: '20px' }}>
         <img
           src={PortfolioText}
           alt={"Portfolio"}
           loading="lazy"
-          style={{
-            width: '70vw'
-          }}
+          style={portfolioTextStyle}
         />
       </Grid>
       {itemData.map((item, index) => (
@@ -113,17 +126,13 @@ const Portfolio = () => {
             <ImageList
               variant="quilted"
               cols={4}
-              style={{ position: 'relative', height: '30vh', overflow: 'hidden', alignContent: 'center' }}
+              rowHeight={200}
             >
               {item.map((item, index) => (
                 <ImageListItem
                   key={item.img}
                   cols={item.cols || 1}
                   rows={item.rows || 1}
-                  style={{
-                    objectFit: 'cover',
-                    objectPosition: 'center'
-                  }}
                 >
                   <img
                     {...srcset(item.img, 200, item.rows, item.cols)}
@@ -141,6 +150,7 @@ const Portfolio = () => {
         open={openModal}
         onClose={handleCloseModal}
         name={selectedCollection}
+        setSelectedImageData={setSelectedImageData}
       />
     </Grid >
   );
@@ -152,25 +162,25 @@ const itemData = [
   [
     {
       img: PersonalLogoMockup,
-      title: 'Breakfast',
+      title: 'Personal Logo',
       rows: 2,
       cols: 2,
     },
     {
       img: ApcMockup,
-      title: 'Burger',
+      title: 'APC Logo',
       rows: 1,
       cols: 1,
     },
     {
       img: FyaMockup,
-      title: 'Camera',
+      title: 'FYA Logo',
       rows: 1,
       cols: 1,
     },
     {
       img: PersonalLogoMockup2,
-      title: 'Coffee',
+      title: 'Personal Logo',
       rows: 1,
       cols: 2,
     },
@@ -178,13 +188,13 @@ const itemData = [
   [
     {
       img: ApcBrandingMockup,
-      title: 'Breakfast',
+      title: 'APC Branding Mockup',
       rows: 2,
       cols: 2,
     },
     {
       img: ApcBrandingMockup2,
-      title: 'Burger',
+      title: 'APC Branding Sticker Mockup',
       rows: 2,
       cols: 2,
     },
@@ -192,103 +202,91 @@ const itemData = [
   [
     {
       img: AugustanMockup,
-      title: 'Breakfast',
+      title: 'Augustan Magazine Mockup',
       rows: 1,
       cols: 1,
     },
     {
       img: GreatGatsbyMockup,
-      title: 'Burger',
+      title: 'Great Gatsby Mockup',
       rows: 1,
       cols: 1,
     },
     {
       img: BeatlesMockup,
-      title: 'Camera',
+      title: 'Beatles Magazine Mockup',
       rows: 2,
       cols: 2,
     },
     {
       img: TravelistaMockup,
-      title: 'Coffee',
+      title: 'Travelista Magazine Mockup',
       rows: 1,
       cols: 2,
     },
   ],
   [
     {
-      img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-      title: 'Breakfast',
+      img: IllustationBeatlesMockup,
+      title: 'Personal Logo',
       rows: 2,
       cols: 2,
     },
     {
-      img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-      title: 'Burger',
+      img: IllustrationMountainMockup,
+      title: 'APC Logo',
       rows: 1,
       cols: 1,
     },
     {
-      img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-      title: 'Camera',
+      img: IllustrationRaftMockup,
+      title: 'FYA Logo',
       rows: 1,
       cols: 1,
     },
     {
-      img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-      title: 'Coffee',
+      img: IllustrationOmaMockup,
+      title: 'Personal Logo',
       rows: 1,
       cols: 2,
     },
   ],
   [
     {
-      img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-      title: 'Breakfast',
+      img: WebJagchowMockup,
+      title: 'Jagchow App',
       rows: 2,
       cols: 2,
     },
     {
-      img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-      title: 'Burger',
-      rows: 1,
-      cols: 1,
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-      title: 'Camera',
-      rows: 1,
-      cols: 1,
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-      title: 'Coffee',
-      rows: 1,
+      img: WebFyaMockup,
+      title: 'FYA App',
+      rows: 2,
       cols: 2,
     },
   ],
   [
     {
-      img: 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e',
-      title: 'Breakfast',
+      img: PhotographyPortrait1,
+      title: 'Augustan Magazine Mockup',
+      rows: 1,
+      cols: 1,
+    },
+    {
+      img: PhotographyPortrait2,
+      title: 'Great Gatsby Mockup',
+      rows: 1,
+      cols: 1,
+    },
+    {
+      img: PhotographyIreland1,
+      title: 'Beatles Magazine Mockup',
       rows: 2,
       cols: 2,
     },
     {
-      img: 'https://images.unsplash.com/photo-1551782450-a2132b4ba21d',
-      title: 'Burger',
-      rows: 1,
-      cols: 1,
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1522770179533-24471fcdba45',
-      title: 'Camera',
-      rows: 1,
-      cols: 1,
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c',
-      title: 'Coffee',
+      img: PhotographyIreland2,
+      title: 'Travelista Magazine Mockup',
       rows: 1,
       cols: 2,
     },
