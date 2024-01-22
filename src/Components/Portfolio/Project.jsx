@@ -1,6 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@mui/styles';
-import WovenImageList from './WovenImageList';
+import MasonryImageList from './MasonryImageList';
 
 const useStyles = makeStyles((theme) => ({
     modalContent: {
@@ -29,7 +29,7 @@ const ProjectModal = ({ open, onClose, project, setSelectedImageData }) => {
     return (
         <div>
             {/* Quilted Image List */}
-            <WovenImageList itemData={project.images} openLightbox={openLightbox} />
+            <MasonryImageList itemData={project.images} openLightbox={openLightbox} />
         </div>
     );
 };
