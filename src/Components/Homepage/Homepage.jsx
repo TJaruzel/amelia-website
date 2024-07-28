@@ -55,6 +55,7 @@ const Homepage = () => {
                 textTransform: 'none',
                 paddingLeft: '60px',
                 paddingRight: '60px',
+                zIndex: '900',
                 '&:hover': {
                   backgroundColor: '#82c1cb',
                 },

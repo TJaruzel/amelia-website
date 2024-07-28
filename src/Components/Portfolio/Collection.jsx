@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Grid, Typography, Dialog, DialogTitle, DialogContent, useMediaQuery, IconButton } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import ProjectModal from './Project';
@@ -259,6 +259,10 @@ const Collection = ({ open, onClose, name, setSelectedImageData }) => {
         setSelectedProject(null);
     };
 
+    useEffect(() => {
+        setSelectedProject(null);
+    }, [name, setSelectedProject]);
+
     return (
         <Dialog
             open={open}
@@ -313,7 +317,7 @@ const Collection = ({ open, onClose, name, setSelectedImageData }) => {
                                         className={classes.image}
                                         src={item.image}
                                         alt={item.title}
-                                        loading="lazy"
+                                        loading="eager"
                                     />
                                 </div>
                             </Grid>
@@ -336,62 +340,72 @@ const collections = {
                 {
                     id: 1,
                     src: LogoImagesHandSketch1,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Personal Logo Hand Sketches One",
+                    //description: "Personal Logo Hand Sketches One",
+                    status: false,
                 },
                 {
                     id: 2,
                     src: LogoImagesHandSketch2,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Personal Logo Hand Sketches Two",
+                    //description: "Personal Logo Hand Sketches Two",
+                    status: false,
                 },
                 {
                     id: 3,
                     src: LogoImagesHandSketch3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Personal Logo Hand Sketches Three",
+                    //description: "Personal Logo Hand Sketches Three",
+                    status: false,
                 },
                 {
                     id: 4,
                     src: LogoImagesDigitalSketch1,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Personal Logo Digital Sketches One",
+                    //description: "Personal Logo Digital Sketches One",
+                    status: false,
                 },
                 {
                     id: 5,
                     src: LogoImagesDigitalSketch2,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Personal Logo Color Variation One",
+                    //description: "Personal Logo Color Variation One",
+                    status: false,
                 },
                 {
                     id: 6,
                     src: LogoImagesDigitalSketch3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Personal Logo Color Variation Two",
+                    //description: "Personal Logo Color Variation Two",
+                    status: false,
                 },
                 {
                     id: 7,
                     src: LogoImagesPersonalMockup1,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Final Personal Logo One",
+                    //description: "Final Personal Logo One",
+                    status: false,
                 },
                 {
                     id: 8,
                     src: LogoImagesPersonalMockup2,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Final Personal Logo Two",
+                    //description: "Final Personal Logo Two",
+                    status: false,
                 },
                 {
                     id: 9,
                     src: LogoImagesPersonalMockup3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Final Personal Logo Three",
+                    //description: "Final Personal Logo Three",
+                    status: false,
                 },
                 {
                     id: 10,
                     src: LogoImagesPersonalMockup4,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Final Personal Logo Four",
+                    //description: "Final Personal Logo Four",
+                    status: false,
                 },
             ]
         },
@@ -401,80 +415,93 @@ const collections = {
                 {
                     id: 1,
                     src: ApcImagesHandSketch1,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "APC Logo Hand Sketches One",
+                    //description: "APC Logo Hand Sketches One",
+                    status: false,
                 },
                 {
                     id: 2,
                     src: ApcImagesHandSketch2,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "APC Logo Hand Sketches Two",
+                    //description: "APC Logo Hand Sketches Two",
+                    status: false,
                 },
                 {
                     id: 3,
                     src: ApcImagesHandSketch3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "APC Logo Hand Sketches Three",
+                    //description: "APC Logo Hand Sketches Three",
+                    status: false,
                 },
                 {
                     id: 4,
                     src: ApcImagesDigitalSketch1,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "APC Logo Digital Sketches One",
+                    //description: "APC Logo Digital Sketches One",
+                    status: false,
                 },
                 {
                     id: 5,
                     src: ApcImagesDigitalSketch2,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "APC Logo Digital Sketches Two",
+                    //description: "APC Logo Digital Sketches Two",
+                    status: false,
                 },
                 {
                     id: 6,
                     src: ApcImagesDigitalSketch3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "APC Logo Color Variations One",
+                    //description: "APC Logo Color Variations One",
+                    status: false,
                 },
                 {
                     id: 7,
                     src: ApcImagesDigitalSketch4,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "APC Logo Color Variations Two",
+                    //description: "APC Logo Color Variations Two",
+                    status: false,
                 },
                 {
                     id: 8,
                     src: ApcImagesDigitalSketch5,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "APC Logo Color Variations Three",
+                    //description: "APC Logo Color Variations Three",
+                    status: false,
                 },
                 {
                     id: 9,
                     src: ApcImagesDigitalSketch6,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "APC Logo Color Variations Four",
+                    //description: "APC Logo Color Variations Four",
+                    status: false,
                 },
                 {
                     id: 10,
                     src: ApcImagesLogoMockup1,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Final APC Logo Variation One",
+                    //description: "Final APC Logo Variation One",
+                    status: false,
                 },
                 {
                     id: 11,
                     src: ApcImagesLogoMockup2,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Final APC Logo Variation Two",
+                    //description: "Final APC Logo Variation Two",
+                    status: false,
                 },
                 {
                     id: 12,
                     src: ApcImagesLogoMockup3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Final APC Logo Variation Three",
+                    //description: "Final APC Logo Variation Three",
+                    status: false,
                 },
                 {
                     id: 13,
                     src: ApcImagesLogoMockup4,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "APC Concept Board",
+                    //description: "APC Concept Board",
+                    status: false,
                 },
             ]
         },
@@ -484,20 +511,23 @@ const collections = {
                 {
                     id: 1,
                     src: BowlNoodesLogoMockup1,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Bowl O' Noodles Logo Variation One",
+                    //description: "Bowl O' Noodles Logo Variation One",
+                    status: false,
                 },
                 {
                     id: 2,
                     src: BowlNoodesLogoMockup2,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Bowl O' Noodles Logo Variation Two",
+                    //description: "Bowl O' Noodles Logo Variation Two",
+                    status: false,
                 },
                 {
                     id: 3,
                     src: BowlNoodesLogoMockup3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Bowl O' Noodles Logo Variation Three",
+                    //description: "Bowl O' Noodles Logo Variation Three",
+                    status: false,
                 },
             ]
         },
@@ -507,20 +537,23 @@ const collections = {
                 {
                     id: 1,
                     src: FyaLogoMockup1,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "FYA Logos",
+                    //description: "FYA Logos",
+                    status: false,
                 },
                 {
                     id: 2,
                     src: FyaLogoMockup2,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "FYA Logo Variation One",
+                    //description: "FYA Logo Variation One",
+                    status: false,
                 },
                 {
                     id: 3,
                     src: FyaLogoMockup3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "FYA Logo Variation Two",
+                    //description: "FYA Logo Variation Two",
+                    status: false,
                 },
             ]
         }
@@ -532,116 +565,135 @@ const collections = {
                 {
                     id: 1,
                     src: JagchowWebMockup1,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Jagchow Splash Page",
+                    //description: "Jagchow Splash Page",
+                    status: false,
                 },
                 {
                     id: 2,
                     src: JagchowWebMockup2,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Jagchow Splash Page",
+                    //description: "Jagchow Splash Page",
+                    status: false,
                 },
                 {
                     id: 3,
                     src: JagchowWebMockup3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Jagchow Homepage",
+                    //description: "Jagchow Homepage",
+                    status: false,
                 },
                 {
                     id: 4,
                     src: JagchowWebMockup4,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Jagchow Full Menu Page",
+                    //description: "Jagchow Full Menu Page",
+                    status: false,
                 },
                 {
                     id: 5,
                     src: JagchowWebMockup5,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Jagchow Chicken Menu Page",
+                    //description: "Jagchow Chicken Menu Page",
+                    status: false,
                 },
                 {
                     id: 6,
                     src: JagchowWebMockup6,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Jagchow Menu Item Page",
+                    //description: "Jagchow Menu Item Page",
+                    status: false,
                 },
                 {
                     id: 7,
                     src: JagchowWebMockup7,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Jagchow Cart Page",
+                    //description: "Jagchow Cart Page",
+                    status: false,
                 },
                 {
                     id: 8,
                     src: JagchowWebMockup8,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Jagchow Checkout Page",
+                    //description: "Jagchow Checkout Page",
+                    status: false,
                 },
                 {
                     id: 9,
                     src: JagchowWebMockup9,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Jagchow Guest Checkout Page",
+                    //description: "Jagchow Guest Checkout Page",
+                    status: false,
                 },
                 {
                     id: 10,
                     src: JagchowWebMockup10,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Jagchow Order Receipt Page",
+                    //description: "Jagchow Order Receipt Page",
+                    status: false,
                 },
                 {
                     id: 11,
                     src: JagchowWebMockup11,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Jagchow Guest Account Page",
+                    //description: "Jagchow Guest Account Page",
+                    status: false,
                 },
                 {
                     id: 12,
                     src: JagchowWebMockup12,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Jagchow Login Page",
+                    //description: "Jagchow Login Page",
+                    status: false,
                 },
                 {
                     id: 13,
                     src: JagchowWebMockup13,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Jagchow Welcome Page",
+                    //description: "Jagchow Welcome Page",
+                    status: false,
                 },
                 {
                     id: 14,
                     src: JagchowWebMockup14,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Jagchow Create Account Page",
+                    //description: "Jagchow Create Account Page",
+                    status: false,
                 },
                 {
                     id: 15,
                     src: JagchowWebMockup15,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Jagchow Account Page",
+                    //description: "Jagchow Account Page",
+                    status: false,
                 },
                 {
                     id: 16,
                     src: JagchowWebMockup16,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Jagchow Account Orders Page",
+                    //description: "Jagchow Account Orders Page",
+                    status: false,
                 },
                 {
                     id: 17,
                     src: JagchowWebMockup17,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Jagchow Account Favorites Page",
+                    //description: "Jagchow Account Favorites Page",
+                    status: false,
                 },
                 {
                     id: 18,
                     src: JagchowWebMockup18,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Jagchow Rewards Page",
+                    //description: "Jagchow Rewards Page",
+                    status: false,
                 },
                 {
                     id: 19,
                     src: JagchowWebMockup19,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Jagchow Account Saved Payments Page",
+                    //description: "Jagchow Account Saved Payments Page",
+                    status: false,
                 },
             ]
         },
@@ -651,56 +703,65 @@ const collections = {
                 {
                     id: 1,
                     src: FyaWebMockup1,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "FYA Splash Page",
+                    //description: "FYA Splash Page",
+                    status: false,
                 },
                 {
                     id: 2,
                     src: FyaWebMockup2,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "FYA Splash Page",
+                    //description: "FYA Splash Page",
+                    status: false,
                 },
                 {
                     id: 3,
                     src: FyaWebMockup3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "FYA Welcome Page",
+                    //description: "FYA Welcome Page",
+                    status: false,
                 },
                 {
                     id: 4,
                     src: FyaWebMockup4,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "FYA Homepage",
+                    //description: "FYA Homepage",
+                    status: false,
                 },
                 {
                     id: 5,
                     src: FyaWebMockup5,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "FYA Art Events Page",
+                    //description: "FYA Art Events Page",
+                    status: false,
                 },
                 {
                     id: 6,
                     src: FyaWebMockup6,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "FYA Featured Artists Page",
+                    //description: "FYA Featured Artists Page",
+                    status: false,
                 },
                 {
                     id: 7,
                     src: FyaWebMockup7,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "FYA Calendar Page",
+                    //description: "FYA Calendar Page",
+                    status: false,
                 },
                 {
                     id: 8,
                     src: FyaWebMockup8,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "FYA Account Page",
+                    //description: "FYA Account Page",
+                    status: false,
                 },
                 {
                     id: 9,
                     src: FyaWebMockup9,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "FYA Messaging Page",
+                    //description: "FYA Messaging Page",
+                    status: false,
                 },
             ]
         }
@@ -712,110 +773,128 @@ const collections = {
                 {
                     id: 1,
                     src: BowlNoodlesBrandingMockup1,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Bowl O' Noodles Stationery One",
+                    //description: "Bowl O' Noodles Stationery One",
+                    status: false,
                 },
                 {
                     id: 2,
                     src: BowlNoodlesBrandingMockup2,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Bowl O' Noodles Business Card One",
+                    //description: "Bowl O' Noodles Business Card One",
+                    status: false,
                 },
                 {
                     id: 3,
                     src: BowlNoodlesBrandingMockup3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Bowl O' Noodles Business Card Two",
+                    //description: "Bowl O' Noodles Business Card Two",
+                    status: false,
                 },
                 {
                     id: 4,
                     src: BowlNoodlesBrandingMockup4,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Bowl O' Noodles Business Card Three",
+                    //description: "Bowl O' Noodles Business Card Three",
+                    status: false,
                 },
                 {
                     id: 5,
                     src: BowlNoodlesBrandingMockup5,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Bowl O' Noodles Business Card Four",
+                    //description: "Bowl O' Noodles Business Card Four",
+                    status: false,
                 },
                 {
                     id: 6,
                     src: BowlNoodlesBrandingMockup6,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Bowl O' Noodles Letterhead",
+                    //description: "Bowl O' Noodles Letterhead",
+                    status: false,
                 },
                 {
                     id: 7,
                     src: BowlNoodlesBrandingMockup7,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Bowl O' Noodles Envelope",
+                    //description: "Bowl O' Noodles Envelope",
+                    status: false,
                 },
                 {
                     id: 8,
                     src: BowlNoodlesBrandingMockup8,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Bowl O' Noodles Logo",
+                    //description: "Bowl O' Noodles Logo",
+                    status: false,
                 },
                 {
                     id: 9,
                     src: BowlNoodlesBrandingMockup9,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Bowl O' Noodles Packaging One",
+                    //description: "Bowl O' Noodles Packaging One",
+                    status: false,
                 },
                 {
                     id: 10,
                     src: BowlNoodlesBrandingMockup10,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Bowl O' Noodles Packaging Two",
+                    //description: "Bowl O' Noodles Packaging Two",
+                    status: false,
                 },
                 {
                     id: 11,
                     src: BowlNoodlesBrandingMockup11,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Bowl O' Noodles Stationery Two",
+                    //description: "Bowl O' Noodles Stationery Two",
+                    status: false,
                 },
                 {
                     id: 12,
                     src: BowlNoodlesBrandingMockup12,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Bowl O' Noodles Stickers One",
+                    //description: "Bowl O' Noodles Stickers One",
+                    status: false,
                 },
                 {
                     id: 13,
                     src: BowlNoodlesBrandingMockup13,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Bowl O' Noodles Stickers Two",
+                    //description: "Bowl O' Noodles Stickers Two",
+                    status: false,
                 },
                 {
                     id: 14,
                     src: BowlNoodlesBrandingMockup14,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Bowl O' Noodles Takeout Cup",
+                    //description: "Bowl O' Noodles Takeout Cup",
+                    status: false,
                 },
                 {
                     id: 15,
                     src: BowlNoodlesBrandingMockup15,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Bowl O' Noodles Red T-shirt Variation One",
+                    //description: "Bowl O' Noodles Red T-shirt Variation One",
+                    status: false,
                 },
                 {
                     id: 16,
                     src: BowlNoodlesBrandingMockup16,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Bowl O' Noodles Beige T-shirt Variation One",
+                    //description: "Bowl O' Noodles Beige T-shirt Variation One",
+                    status: false,
                 },
                 {
                     id: 17,
                     src: BowlNoodlesBrandingMockup17,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Bowl O' Noodles Red T-shirt Variation Two",
+                    //description: "Bowl O' Noodles Red T-shirt Variation Two",
+                    status: false,
                 },
                 {
                     id: 18,
                     src: BowlNoodlesBrandingMockup18,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Bowl O' Noodles Beige T-shirt Variation Two",
+                    //description: "Bowl O' Noodles Beige T-shirt Variation Two",
+                    status: false,
                 },
             ]
         },
@@ -825,98 +904,114 @@ const collections = {
                 {
                     id: 1,
                     src: ApcBrandingMockup1,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "APC Stationery",
+                    //description: "APC Stationery",
+                    status: false,
                 },
                 {
                     id: 2,
                     src: ApcBrandingMockup2,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "APC Tote Bag",
+                    //description: "APC Tote Bag",
+                    status: false,
                 },
                 {
                     id: 3,
                     src: ApcBrandingMockup3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "APC Coffee Mug",
+                    //description: "APC Coffee Mug",
+                    status: false,
                 },
                 {
                     id: 4,
                     src: ApcBrandingMockup4,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "APC Water Bottle",
+                    //description: "APC Water Bottle",
+                    status: false,
                 },
                 {
                     id: 5,
                     src: ApcBrandingMockup5,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "APC Tumbler",
+                    //description: "APC Tumbler",
+                    status: false,
                 },
                 {
                     id: 6,
                     src: ApcBrandingMockup6,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "APC White T-shirt",
+                    //description: "APC White T-shirt",
+                    status: false,
                 },
                 {
                     id: 7,
                     src: ApcBrandingMockup7,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "APC Beige T-shirt",
+                    //description: "APC Beige T-shirt",
+                    status: false,
                 },
                 {
                     id: 8,
                     src: ApcBrandingMockup8,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "APC Beige Polo",
+                    //description: "APC Beige Polo",
+                    status: false,
                 },
                 {
                     id: 9,
                     src: ApcBrandingMockup9,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "APC Grey Polo",
+                    //description: "APC Grey Polo",
+                    status: false,
                 },
                 {
                     id: 10,
                     src: ApcBrandingMockup10,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "APC Sign",
+                    //description: "APC Sign",
+                    status: false,
                 },
                 {
                     id: 11,
                     src: ApcBrandingMockup11,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "APC Business Card",
+                    //description: "APC Business Card",
+                    status: false,
                 },
                 {
                     id: 12,
                     src: ApcBrandingMockup12,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "APC Letterhead Front",
+                    //description: "APC Letterhead Front",
+                    status: false,
                 },
                 {
                     id: 13,
                     src: ApcBrandingMockup13,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "APC Letterhead Back",
+                    //description: "APC Letterhead Back",
+                    status: false,
                 },
                 {
                     id: 14,
                     src: ApcBrandingMockup14,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "APC Envelope",
+                    //description: "APC Envelope",
+                    status: false,
                 },
                 {
                     id: 15,
                     src: ApcBrandingMockup15,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "APC Folder",
+                    //description: "APC Folder",
+                    status: false,
                 },
                 {
                     id: 16,
                     src: ApcBrandingMockup16,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "APC Stickers",
+                    //description: "APC Stickers",
+                    status: false,
                 },
             ]
         }
@@ -966,8 +1061,9 @@ const collections = {
                 {
                     id: 1,
                     src: EditorialGatsbyThumbnail,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "The Great Gatsby Book Redesign",
+                    //description: "The Great Gatsby Book Redesign",
+                    status: false,
                 },
             ]
         },
@@ -977,8 +1073,9 @@ const collections = {
                 {
                     id: 1,
                     src: EditorialAugustanThumbnail,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "The Augustan Magazine Cover",
+                    //description: "The Augustan Magazine Cover",
+                    status: false,
                 },
             ]
         },
@@ -988,104 +1085,121 @@ const collections = {
                 {
                     id: 1,
                     src: BeatlesEditorialHandSketch1,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Beatles Magazine Spread Hand Sketch One",
+                    //description: "Beatles Magazine Spread Hand Sketch One",
+                    status: false,
                 },
                 {
                     id: 2,
                     src: BeatlesEditorialHandSketch2,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Beatles Magazine Spread Hand Sketch Two",
+                    //description: "Beatles Magazine Spread Hand Sketch Two",
+                    status: false,
                 },
                 {
                     id: 3,
                     src: BeatlesEditorialHandSketch3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Beatles Magazine Spread Hand Sketch Three",
+                    //description: "Beatles Magazine Spread Hand Sketch Three",
+                    status: false,
                 },
                 {
                     id: 4,
                     src: BeatlesEditorialHandSketch4,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Beatles Magazine Spread Hand Sketch Four",
+                    //description: "Beatles Magazine Spread Hand Sketch Four",
+                    status: false,
                 },
                 {
                     id: 5,
                     src: BeatlesEditorialHandSketch5,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Beatles Magazine Spread Hand Sketch Five",
+                    //description: "Beatles Magazine Spread Hand Sketch Five",
+                    status: false,
                 },
                 {
                     id: 6,
                     src: BeatlesEditorialHandSketch6,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Beatles Magazine Spread Hand Sketch Six",
+                    //description: "Beatles Magazine Spread Hand Sketch Six",
+                    status: false,
                 },
                 {
                     id: 7,
                     src: BeatlesEditorialDigitalSketch1,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Beatles Magazine Spread Digital Sketch One",
+                    //description: "Beatles Magazine Spread Digital Sketch One",
+                    status: false,
                 },
                 {
                     id: 8,
                     src: BeatlesEditorialDigitalSketch2,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Beatles Magazine Spread Digital Sketch Two",
+                    //description: "Beatles Magazine Spread Digital Sketch Two",
+                    status: false,
                 },
                 {
                     id: 9,
                     src: BeatlesEditorialDigitalSketch3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Beatles Magazine Spread Digital Sketch Three",
+                    //description: "Beatles Magazine Spread Digital Sketch Three",
+                    status: false,
                 },
                 {
                     id: 10,
                     src: BeatlesEditorialDigitalSketch4,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Beatles Magazine Spread Digital Sketch Four",
+                    //description: "Beatles Magazine Spread Digital Sketch Four",
+                    status: false,
                 },
                 {
                     id: 11,
                     src: BeatlesEditorialDigitalSketch5,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Beatles Magazine Spread Digital Sketch Five",
+                    //description: "Beatles Magazine Spread Digital Sketch Five",
+                    status: false,
                 },
                 {
                     id: 12,
                     src: BeatlesEditorialDigitalSketch6,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Beatles Magazine Spread Digital Sketch Six",
+                    //description: "Beatles Magazine Spread Digital Sketch Six",
+                    status: false,
                 },
                 {
                     id: 13,
                     src: BeatlesEditorialDigitalSketch7,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Beatles Magazine Spread Digital Sketch Seven",
+                    //description: "Beatles Magazine Spread Digital Sketch Seven",
+                    status: false,
                 },
                 {
                     id: 14,
                     src: BeatlesEditorialMockup1,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Final Beatles Magazine Spread One",
+                    //description: "Final Beatles Magazine Spread One",
+                    status: false,
                 },
                 {
                     id: 15,
                     src: BeatlesEditorialMockup2,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Final Beatles Magazine Spread Two",
+                    //description: "Final Beatles Magazine Spread Two",
+                    status: false,
                 },
                 {
                     id: 16,
                     src: BeatlesEditorialMockup3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Final Beatles Magazine Spread Three",
+                    //description: "Final Beatles Magazine Spread Three",
+                    status: false,
                 },
                 {
                     id: 17,
                     src: BeatlesEditorialMockup4,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Final Beatles Magazine Spread Four",
+                    //description: "Final Beatles Magazine Spread Four",
+                    status: false,
                 },
             ]
         },
@@ -1095,38 +1209,44 @@ const collections = {
                 {
                     id: 1,
                     src: TravelistaEditorialMockup1,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Travelista Magazine Cover",
+                    //description: "Travelista Magazine Cover",
+                    status: false,
                 },
                 {
                     id: 2,
                     src: TravelistaEditorialMockup2,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Travelista Magazine Cover",
+                    //description: "Travelista Magazine Cover",
+                    status: false,
                 },
                 {
                     id: 3,
                     src: TravelistaEditorialMockup3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Travelista Magazine Contents Pages",
+                    //description: "Travelista Magazine Contents Pages",
+                    status: false,
                 },
                 {
                     id: 4,
                     src: TravelistaEditorialMockup4,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Travelista Magazine Article Cover Pages",
+                    //description: "Travelista Magazine Article Cover Pages",
+                    status: false,
                 },
                 {
                     id: 5,
                     src: TravelistaEditorialMockup5,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Travelista Magazine Article Pages",
+                    //description: "Travelista Magazine Article Pages",
+                    status: false,
                 },
                 {
                     id: 6,
                     src: TravelistaEditorialMockup6,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Travelista Magazine Advertisement Pages",
+                    //description: "Travelista Magazine Advertisement Pages",
+                    status: false,
                 },
             ]
         }
@@ -1138,26 +1258,30 @@ const collections = {
                 {
                     id: 1,
                     src: OmaIllustrationMockup1,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Oma Illustration",
+                    //description: "Oma Illustration",
+                    status: false,
                 },
                 {
                     id: 2,
                     src: OmaIllustrationMockup2,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Oma Illustration",
+                    //description: "Oma Illustration",
+                    status: false,
                 },
                 {
                     id: 3,
                     src: OmaIllustrationMockup3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Oma Illustration",
+                    //description: "Oma Illustration",
+                    status: false,
                 },
                 {
                     id: 4,
                     src: OmaIllustrationMockup4,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Oma Illustration",
+                    //description: "Oma Illustration",
+                    status: false,
                 },
             ]
         },
@@ -1167,26 +1291,30 @@ const collections = {
                 {
                     id: 1,
                     src: NokomisRaftIllustrationMockup1,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Nokomis Raft",
+                    //description: "Nokomis Raft",
+                    status: false,
                 },
                 {
                     id: 2,
                     src: NokomisRaftIllustrationMockup2,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Nokomis Raft",
+                    //description: "Nokomis Raft",
+                    status: false,
                 },
                 {
                     id: 3,
                     src: NokomisRaftIllustrationMockup3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Nokomis Raft",
+                    //description: "Nokomis Raft",
+                    status: false,
                 },
                 {
                     id: 4,
                     src: NokomisRaftIllustrationMockup4,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Nokomis Raft",
+                    //description: "Nokomis Raft",
+                    status: false,
                 },
             ]
         },
@@ -1196,26 +1324,30 @@ const collections = {
                 {
                     id: 1,
                     src: NokomisMountainIllustrationMockup1,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Nokomis Mountain",
+                    //description: "Nokomis Mountain",
+                    status: false,
                 },
                 {
                     id: 2,
                     src: NokomisMountainIllustrationMockup2,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Nokomis Mountain",
+                    //description: "Nokomis Mountain",
+                    status: false,
                 },
                 {
                     id: 3,
                     src: NokomisMountainIllustrationMockup3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Nokomis Mountain",
+                    //description: "Nokomis Mountain",
+                    status: false,
                 },
                 {
                     id: 4,
                     src: NokomisMountainIllustrationMockup4,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Nokomis Mountain",
+                    //description: "Nokomis Mountain",
+                    status: false,
                 },
             ]
         },
@@ -1225,26 +1357,29 @@ const collections = {
                 {
                     id: 1,
                     src: BeatlesIllustrationMockup1,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Beatles Jack Face Card",
+                    //description: "Beatles Jack Face Card",
+                    status: false,
                 },
                 {
                     id: 2,
                     src: BeatlesIllustrationMockup2,
-                    title: "Slide 2",
-                    description: "Slide 2 Description"
+                    title: "Beatles Queen Face Card",
+                    //description: "Beatles Queen Face Card",
                 },
                 {
                     id: 3,
                     src: BeatlesIllustrationMockup3,
-                    title: "Slide 3",
-                    description: "Slide 3 Description"
+                    title: "Beatles King Face Card",
+                    //description: "Beatles King Face Card",
+                    status: false,
                 },
                 {
                     id: 4,
                     src: BeatlesIllustrationMockup4,
-                    title: "Slide 1",
-                    description: "Slide 1 Description"
+                    title: "Beatles Joker Face Card",
+                    //description: "Beatles Joker Face Card",
+                    status: false,
                 },
             ]
         }

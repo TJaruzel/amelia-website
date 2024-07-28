@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Grid, ImageList, ImageListItem, Typography, useMediaQuery } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import PortfolioText from '../../Lib/Backgrounds/PortfolioPage.png'
@@ -23,6 +23,7 @@ import PhotographyIreland2 from '../../Lib/PhotographyCollection/Ireland/IMG_215
 import PhotographyPortrait1 from '../../Lib/PhotographyCollection/Portraits/DSC_5110.jpg'
 import PhotographyPortrait2 from '../../Lib/PhotographyCollection/Portraits/DSC_7598-3.jpg'
 import Collection from './Collection';
+import Loader from '../Shared/Loader';
 
 const useStyles = makeStyles((theme) => ({
   fullPageContainer: {
@@ -60,15 +61,20 @@ const Portfolio = ({ setSelectedImageData }) => {
   const classes = useStyles();
   const [openModal, setOpenModal] = useState(false);
   const [selectedCollection, setSelectedCollection] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [loadedImages, setLoadedImages] = useState([...itemData])
   const isMdUp = useMediaQuery('(min-width:800px)');
   const isLgUp = useMediaQuery('(min-width:1280px)');
+  const urlParams = new URLSearchParams(window.location.search);
+  const jumpto = urlParams.get('jumpto');
+  console.log(jumpto)
+  const validCollectionNames = ["logo", "branding", "editorial", "illustration", "web", "photography"]
   let containerStyle = {};
   let portfolioTextStyle = {};
   if (isMdUp) { containerStyle = { marginTop: '16vh' } } else { containerStyle = { marginTop: '8vh' } }
   if (isLgUp) { portfolioTextStyle = { width: '40vw' } } else { portfolioTextStyle = { width: '70vw' } }
 
   const handleOpenModal = (collection) => {
-    console.log(collection)
     setSelectedCollection(collection?.name);
     setOpenModal(true);
   };
@@ -76,6 +82,13 @@ const Portfolio = ({ setSelectedImageData }) => {
   const handleCloseModal = () => {
     setOpenModal(false);
   };
+
+  const handleCollectionsLoad = (inputItem, index) => {
+    const newLoadedImages = [...loadedImages]
+    const foundItem = newLoadedImages[index].find(item => item === inputItem);
+    foundItem.status = true;
+    setLoadedImages(newLoadedImages);
+  }
 
   function srcset(image, size, rows = 1, cols = 1) {
     return {
@@ -86,66 +99,91 @@ const Portfolio = ({ setSelectedImageData }) => {
 
   const determineRouteAndText = (index) => {
     if (index === 0) {
-      return { name: "logo", text: 'Logo' }
+      return { name: validCollectionNames[0], text: 'Logo' }
     }
     if (index === 1) {
-      return { name: "branding", text: 'Branding' }
+      return { name: validCollectionNames[1], text: 'Branding' }
     }
     if (index === 2) {
-      return { name: "editorial", text: 'Editorial' }
+      return { name: validCollectionNames[2], text: 'Editorial' }
     }
     if (index === 3) {
-      return { name: "illustration", text: 'Illustration' }
+      return { name: validCollectionNames[3], text: 'Illustration' }
     }
     if (index === 4) {
-      return { name: "web", text: 'Web' }
+      return { name: validCollectionNames[4], text: 'Web' }
     }
     if (index === 5) {
-      return { name: "photography", text: 'Photography' }
+      return { name: validCollectionNames[5], text: 'Photography' }
     }
   }
 
+  useEffect(() => {
+    if (loadedImages.every(list => list.every(item => item.status))) {
+      setLoading(false);
+    }
+    else {
+      if (loading !== true) {
+        setLoading(true);
+      }
+    }
+  }, [loadedImages, loading])
+
+  useEffect(() => {
+    if (Boolean(jumpto)) {
+      let collectionNameIndex = validCollectionNames.findIndex(x => x === jumpto.toLowerCase());
+      console.log(collectionNameIndex)
+      if (collectionNameIndex >= 0) {
+        handleOpenModal(determineRouteAndText(collectionNameIndex))
+      }
+    }
+  }, [jumpto, validCollectionNames])
+
   return (
     <Grid container className={classes.fullPageContainer} style={containerStyle}>
+      <Loader open={loading} />
       <Grid container item style={{ justifyContent: 'center', margin: '20px' }}>
         <img
           src={PortfolioText}
           alt={"Portfolio"}
-          loading="lazy"
+          loading="eager"
           style={portfolioTextStyle}
         />
       </Grid>
-      {itemData.map((item, index) => (
-        <Grid item xs={12} md={6} lg={6} xl={4}>
-          {/* ImageList Container */}
-          <div className={classes.imageListContainer} onClick={() => handleOpenModal(determineRouteAndText(index))}>
-            {/* Overlay */}
-            <div className={`overlay ${classes.overlay}`}><Typography variant={'h2'} style={{ color: 'white' }}>{determineRouteAndText(index)?.text}</Typography></div>
+      <Grid container item>
+        {itemData.map((item, index) => (
+          <Grid item xs={12} md={6} lg={6} xl={4}>
+            {/* ImageList Container */}
+            <div className={classes.imageListContainer} onClick={() => handleOpenModal(determineRouteAndText(index))}>
+              {/* Overlay */}
+              <div className={`overlay ${classes.overlay}`}><Typography variant={'h2'} style={{ color: 'white' }}>{determineRouteAndText(index)?.text}</Typography></div>
 
-            {/* ImageList */}
-            <ImageList
-              variant="quilted"
-              cols={4}
-              rowHeight={200}
-            >
-              {item.map((item, index) => (
-                <ImageListItem
-                  key={item.img}
-                  cols={item.cols || 1}
-                  rows={item.rows || 1}
-                >
-                  <img
-                    {...srcset(item.img, 200, item.rows, item.cols)}
-                    alt={item.title}
-                    loading="lazy"
-                  />
-                </ImageListItem>
-              ))}
-            </ImageList>
-          </div>
-        </Grid>
-      ))
-      }
+              {/* ImageList */}
+              <ImageList
+                variant="quilted"
+                cols={4}
+                rowHeight={200}
+              >
+                {item.map((item, itemIndex) => (
+                  <ImageListItem
+                    key={item.img}
+                    cols={item.cols || 1}
+                    rows={item.rows || 1}
+                  >
+                    <img
+                      {...srcset(item.img, 200, item.rows, item.cols)}
+                      alt={item.title}
+                      loading="lazy"
+                      onLoad={() => handleCollectionsLoad(item, index)}
+                    />
+                  </ImageListItem>
+                ))}
+              </ImageList>
+            </div>
+          </Grid>
+        ))
+        }
+      </Grid>
       <Collection
         open={openModal}
         onClose={handleCloseModal}
@@ -165,24 +203,28 @@ const itemData = [
       title: 'Personal Logo',
       rows: 2,
       cols: 2,
+      status: false,
     },
     {
       img: ApcMockup,
       title: 'APC Logo',
       rows: 1,
       cols: 1,
+      status: false,
     },
     {
       img: FyaMockup,
       title: 'FYA Logo',
       rows: 1,
       cols: 1,
+      status: false,
     },
     {
       img: PersonalLogoMockup2,
       title: 'Personal Logo',
       rows: 1,
       cols: 2,
+      status: false,
     },
   ],
   [
@@ -191,12 +233,14 @@ const itemData = [
       title: 'APC Branding Mockup',
       rows: 2,
       cols: 2,
+      status: false,
     },
     {
       img: ApcBrandingMockup2,
       title: 'APC Branding Sticker Mockup',
       rows: 2,
       cols: 2,
+      status: false,
     },
   ],
   [
@@ -205,24 +249,28 @@ const itemData = [
       title: 'Augustan Magazine Mockup',
       rows: 1,
       cols: 1,
+      status: false,
     },
     {
       img: GreatGatsbyMockup,
       title: 'Great Gatsby Mockup',
       rows: 1,
       cols: 1,
+      status: false,
     },
     {
       img: BeatlesMockup,
       title: 'Beatles Magazine Mockup',
       rows: 2,
       cols: 2,
+      status: false,
     },
     {
       img: TravelistaMockup,
       title: 'Travelista Magazine Mockup',
       rows: 1,
       cols: 2,
+      status: false,
     },
   ],
   [
@@ -231,24 +279,28 @@ const itemData = [
       title: 'Personal Logo',
       rows: 2,
       cols: 2,
+      status: false,
     },
     {
       img: IllustrationMountainMockup,
       title: 'APC Logo',
       rows: 1,
       cols: 1,
+      status: false,
     },
     {
       img: IllustrationRaftMockup,
       title: 'FYA Logo',
       rows: 1,
       cols: 1,
+      status: false,
     },
     {
       img: IllustrationOmaMockup,
       title: 'Personal Logo',
       rows: 1,
       cols: 2,
+      status: false,
     },
   ],
   [
@@ -257,12 +309,14 @@ const itemData = [
       title: 'Jagchow App',
       rows: 2,
       cols: 2,
+      status: false,
     },
     {
       img: WebFyaMockup,
       title: 'FYA App',
       rows: 2,
       cols: 2,
+      status: false,
     },
   ],
   [
@@ -271,24 +325,28 @@ const itemData = [
       title: 'Augustan Magazine Mockup',
       rows: 1,
       cols: 1,
+      status: false,
     },
     {
       img: PhotographyPortrait2,
       title: 'Great Gatsby Mockup',
       rows: 1,
       cols: 1,
+      status: false,
     },
     {
       img: PhotographyIreland1,
       title: 'Beatles Magazine Mockup',
       rows: 2,
       cols: 2,
+      status: false,
     },
     {
       img: PhotographyIreland2,
       title: 'Travelista Magazine Mockup',
       rows: 1,
       cols: 2,
+      status: false,
     },
   ],
 ];

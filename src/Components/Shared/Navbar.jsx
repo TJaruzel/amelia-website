@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Grid, Stack, useMediaQuery } from '@mui/material';
+import { Button, Grid, useMediaQuery } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import logo from '../Lib/Logos/512Logo.png';
+import logo from '../../Lib/Logos/512Logo.png';
 
 const useStyles = makeStyles((theme) => ({
   navbarContainer: {
@@ -47,9 +47,9 @@ const Navbar = () => {
         <Link to="/about" className={classes.link}>
           <Button style={{ color: '#82C1CA', fontSize: '1.2em', textTransform: 'none' }}>About</Button>
         </Link>
-        <Link to="/resume" className={classes.link}>
+        {/* <Link to="/resume" className={classes.link}>
           <Button style={{ color: '#82C1CA', fontSize: '1.2em', textTransform: 'none' }}>Resume</Button>
-        </Link>
+        </Link> */}
         <Link to="/contact" className={classes.link}>
           <Button style={{ color: '#82C1CA', fontSize: '1.2em', textTransform: 'none' }}>Contact</Button>
         </Link>
