@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/amelia-website/static/css/main.2f7430af.css",
-    "main.js": "/amelia-website/static/js/main.9062fdef.js",
+    "main.js": "/amelia-website/static/js/main.8326c1c7.js",
     "static/js/787.d4aba7ab.chunk.js": "/amelia-website/static/js/787.d4aba7ab.chunk.js",
     "static/media/BowlONoodlesEnvelopeMockup.AmeliaRensch.jpg": "/amelia-website/static/media/BowlONoodlesEnvelopeMockup.AmeliaRensch.bf6d786fce9308f8e9f0.jpg",
     "static/media/DSC_5110.jpg": "/amelia-website/static/media/DSC_5110.5f55fc151ec395503cc7.jpg",
@@ -101,6 +101,7 @@
     "static/media/5.jpg": "/amelia-website/static/media/5.1de42614f497af875916.jpg",
     "static/media/FYA.AccountPage.AmeliaRensch.png": "/amelia-website/static/media/FYA.AccountPage.AmeliaRensch.e7178c3b32e2a1abc911.png",
     "static/media/JagChowMockup5.AmeliaRensch.png": "/amelia-website/static/media/JagChowMockup5.AmeliaRensch.6b09884e501ba19304ef.png",
+    "static/media/IS.RenschAmelia.Resume.pdf": "/amelia-website/static/media/IS.RenschAmelia.Resume.dadac58b80f5a0096273.pdf",
     "static/media/APCMockup4.AmeliaRensch.png": "/amelia-website/static/media/APCMockup4.AmeliaRensch.72d06b47a7b044f47fe9.png",
     "static/media/FYA.Homepage.AmeliaRensch.png": "/amelia-website/static/media/FYA.Homepage.AmeliaRensch.5b5d40ba6acfa0a1f1b6.png",
     "static/media/JagChowMockup14.AmeliaRensch.png": "/amelia-website/static/media/JagChowMockup14.AmeliaRensch.3ecd9f91335d84278e95.png",
@@ -145,11 +146,11 @@
     "static/media/P5.RenschAmelia.PhotographyIcon.png": "/amelia-website/static/media/P5.RenschAmelia.PhotographyIcon.f9555f30d3c9f3b7ca6c.png",
     "index.html": "/amelia-website/index.html",
     "main.2f7430af.css.map": "/amelia-website/static/css/main.2f7430af.css.map",
-    "main.9062fdef.js.map": "/amelia-website/static/js/main.9062fdef.js.map",
+    "main.8326c1c7.js.map": "/amelia-website/static/js/main.8326c1c7.js.map",
     "787.d4aba7ab.chunk.js.map": "/amelia-website/static/js/787.d4aba7ab.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.2f7430af.css",
-    "static/js/main.9062fdef.js"
+    "static/js/main.8326c1c7.js"
   ]
 }
