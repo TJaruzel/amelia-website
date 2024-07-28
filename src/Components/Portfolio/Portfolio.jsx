@@ -137,7 +137,7 @@ const Portfolio = ({ setSelectedImageData }) => {
         handleOpenModal(determineRouteAndText(collectionNameIndex))
       }
     }
-  }, [jumpto, validCollectionNames])
+  }, [jumpto])
 
   return (
     <Grid container className={classes.fullPageContainer} style={containerStyle}>
